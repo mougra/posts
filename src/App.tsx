@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import './App.css'
+import { useAppDispatch, useAppSelector } from './hook/redux'
+import { fetchPosts } from './store/actions/postsActions'
+import Header from './components/Header'
+import Layout from './components/Layout'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 0.625rem;
+
+  @media (max-width: 992px) {
+    padding: 0 1.25rem;
+  }
+  @media (max-width: 576px) {
+    padding: 0 0.75rem;
+  }
+`
 
 function App() {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchPosts())
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Wrapper>
+        <Header />
+        <Layout />
+      </Wrapper>
+    </>
+  )
 }
 
-export default App;
+export default App

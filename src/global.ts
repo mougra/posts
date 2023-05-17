@@ -1,0 +1,8 @@
+export const colors = {
+  yellowmellow: '#fbe69b',
+  // lightbrown: '#be8b7b',
+  whiteopasity: '#fff',
+  pearl: '#fdf2e9',
+  lightblue: '#93CEF0',
+  black: '#000000',
+}
