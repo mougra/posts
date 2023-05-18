@@ -8,7 +8,56 @@ interface CharacterCardProps {
 const PostData = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: #9b9b9b;
+
+  margin: 0 0 1rem 0;
 `
+
+const CardTheme = styled.h4`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 13px;
+  color: #eb0028;
+  margin: 1rem 0;
+`
+const CardCaption = styled.h2`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000000;
+  margin: 0 0 1rem 0;
+`
+const PostDataAuthor = styled.div`
+  color: #000000;
+  font-weight: 500;
+`
+const Dotted = styled.div`
+  width: 3px;
+  height: 3px;
+  background: #d7d7d7;
+  border-radius: 50%;
+`
+const CardText = styled.div`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #929292;
+`
+
 const CardImg = styled.img`
   width: 100%;
   max-width: 360px;
@@ -51,14 +100,16 @@ function Post({ post }: CharacterCardProps) {
           srcSet={`${post.img} 1x, ${post.img_2x} 2x`}
           className='layout__card-img'
         />
-        <h4 className='card__theme'>{post.tags}</h4>
-        <h2 className='card__caption'>{post.title}</h2>
+        <CardTheme className='card__theme'>{post.tags}</CardTheme>
+        <CardCaption className='card__caption'>{post.title}</CardCaption>
         <PostData>
-          <div className='card__post-data-author'>{post.autor}</div>
+          <PostDataAuthor>{post.autor}</PostDataAuthor>
+          <Dotted />
           <div className='card__post-data-date'>{post.date}</div>
+          <Dotted />
           <div className='card__post-data-views'>{post.views}</div>
         </PostData>
-        <div className='card__text'>{post.text}</div>
+        <CardText className='card__text'>{post.text}</CardText>
       </Card>
     </>
   )

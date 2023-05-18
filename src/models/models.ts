@@ -12,3 +12,10 @@ export interface IPost {
 // export interface ServerResponse<T> {
 //   results: T[]
 // }
+
+// Define general type for useWindowSize hook, which includes width and height
+export interface Size {
+  width: number | undefined
+  // height: number | undefined
+  SCREEN_SM: boolean
+}

@@ -6,6 +6,21 @@ import Hamburger from './Hamburger'
 import styled from 'styled-components'
 import { colors } from '../global'
 import { useOnClickOutside } from '../hook/outside'
+import { useWindowSize } from '../hook/resize'
+import { Size } from '../models/models'
+import Navigation from './Navigation'
+
+const Wrapper = styled.div`
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 0.625rem;
+  @media (max-width: 992px) {
+    padding: 0 1.25rem;
+  }
+  @media (max-width: 576px) {
+    padding: 0 0.75rem;
+  }
+`
 
 const HeaderStyle = styled.div`
   padding: 29px 0 25px;
@@ -35,7 +50,7 @@ const StyledMenu = styled.nav<{ open: boolean }>`
 `
 
 const StyledLink = styled.a`
-  padding: 0 2rem;
+  padding: 0 1.25rem;
   font-size: 2rem;
   color: ${colors.black};
   text-decoration: none;
@@ -46,15 +61,14 @@ const StyledLink = styled.a`
 `
 
 const MenuLogo = styled.img`
-  /* width: 161.28px; */
   height: 24px;
-  /* margin-left: 1.25rem; */
   padding-bottom: 25px;
+  padding-left: 1.25rem;
+`
+const ImgContainer = styled.div`
   border-bottom: 1px solid #e9e9e9;
-  /* background-image: url(${LogoS}); */
 `
 const MainLogo = styled.img<{ open: boolean }>`
-  /* width: 161.28px; */
   height: 27px;
 
   @media (max-width: 576px) {
@@ -63,15 +77,12 @@ const MainLogo = styled.img<{ open: boolean }>`
 `
 
 const Overlay = styled.div<{ open: boolean }>`
-  /* width: 161.28px; */
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* z-index: 10; */
   z-index: ${({ open }) => (open ? '10' : '-10')};
-  /* display: block; */
   background-color: rgba(255, 255, 255, 0.7);
   /* @media (max-width: 576px) {
     opacity: ${({ open }) => (open ? '0' : '1')};
@@ -85,28 +96,35 @@ function Header() {
 
   useOnClickOutside(node, () => setOpen(false))
 
+  const size: Size = useWindowSize()
+
+  // console.log('size')
+
   return (
     <>
-      <HeaderStyle>
-        <div ref={node}>
-          <StyledMenu open={open}>
-            {/* <MenuLogo /> */}
-            {/* <img src={Logo} alt=' logo' className='logo' /> */}
-            <MenuLogo src={LogoS} alt='logo' />
-            <StyledLink onClick={() => close()}>Link 1</StyledLink>
-            <StyledLink onClick={() => close()}>Link 2</StyledLink>
-            <StyledLink onClick={() => close()}>Link 3</StyledLink>
-          </StyledMenu>
-          <Hamburger open={open} setOpen={setOpen} />
-          <Overlay open={open} onClick={() => close()} />
-        </div>
+      <Wrapper>
+        <HeaderStyle>
+          <div ref={node}>
+            <StyledMenu open={open}>
+              <ImgContainer>
+                <MenuLogo src={LogoS} alt='logo' />
+              </ImgContainer>
 
-        <a href='#' className='header__logo-link'>
-          <MainLogo open={open} src={Logo} alt='logo' />
-          {/* <img src={Logo} alt='logo' className='logo' /> */}
-        </a>
-        <img src={searchIcon} alt=' search-icon' className='search-icon' />
-      </HeaderStyle>
+              <StyledLink onClick={() => close()}>Link 1</StyledLink>
+              <StyledLink onClick={() => close()}>Link 2</StyledLink>
+              <StyledLink onClick={() => close()}>Link 3</StyledLink>
+            </StyledMenu>
+            {size.SCREEN_SM && <Hamburger open={open} setOpen={setOpen} />}
+            <Overlay open={open} onClick={() => close()} />
+          </div>
+
+          <a href='#' className='header__logo-link'>
+            <MainLogo open={open} src={Logo} alt='logo' />
+          </a>
+          <img src={searchIcon} alt=' search-icon' className='search-icon' />
+        </HeaderStyle>
+      </Wrapper>
+      {!size.SCREEN_SM && <Navigation />}
     </>
   )
 }

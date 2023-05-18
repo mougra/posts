@@ -7,7 +7,7 @@ import { colors } from '../global'
 const StyledHamburger = styled.button<{ open: boolean }>`
   position: absolute;
   /* position: fixed; */
-  left: ${({ open }) => (open ? '50vw' : '0.625rem')};
+  left: ${({ open }) => (open ? '17rem' : '0.625rem')};
   /* top: 3vw; */
   top: 26px;
 
@@ -25,9 +25,9 @@ const StyledHamburger = styled.button<{ open: boolean }>`
   outline: none;
   z-index: 20;
 
-  @media (min-width: 577px) {
+  /* @media (min-width: 577px) {
     opacity: 0;
-  }
+  } */
 
   div {
     position: relative;
