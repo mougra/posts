@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Size } from '../models/models'
 
-export const SCREEN_SM = 576
+export const SCREEN_SM = 623
 export const SCREEN_MD = 768
 export const SCREEN_LG = 992
 export const SCREEN_XL = 1200

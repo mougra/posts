@@ -9,6 +9,7 @@ const SubMenu = styled.ul`
   background-color: #ffffff;
   padding: 20px;
   border: 1px solid #e9e9e9;
+
   margin-top: 20px;
 `
 
@@ -17,7 +18,7 @@ interface NextMenuProps {
 }
 const NextMenu = styled.ul<NextMenuProps>`
   position: absolute;
-  right: ${({ position }) => (position === 'true' ? '-90%' : '95%')};
+  right: -50%;
   top: 1rem;
   list-style: none;
   background-color: #ffffff;
@@ -38,31 +39,32 @@ const SubMenuItem = styled.li`
   &:first-child {
     padding-top: 0;
   }
-`
-
-const NavMenu = styled.ul`
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-  position: relative;
-
-  flex-direction: row;
-
-  margin: 0 0 3rem 0;
-  padding: 0;
-  border-top: 1px solid #e9e9e9;
-  border-bottom: 1px solid #e9e9e9;
 
   a {
     color: black;
     text-decoration: none;
   }
 `
-const NavMenuItemContainer = styled.div`
+
+const NavMenu = styled.ul`
   display: flex;
-  gap: 0.5rem;
+  justify-content: center;
+  /* gap: 1rem; */
+  list-style: none;
+  position: relative;
+
+  flex-direction: column;
+
+  padding: 1rem 2rem;
+`
+const NavMenuItemContainer = styled.div`
+  width: fit-content;
+
+  display: flex;
+  gap: 0.75rem;
   justify-content: space-between;
+
+  padding: 0.5rem 0;
 `
 
 interface ArrowProps {
@@ -70,6 +72,7 @@ interface ArrowProps {
 }
 
 const Arrow = styled.div<ArrowProps>`
+  width: max-content;
   position: relative;
   cursor: pointer;
   margin: 0;
@@ -147,6 +150,16 @@ const NavMenuItem = styled.li`
     transform-origin: center center;
     transform: rotate(70deg);
   }
+
+  border-bottom: 1px solid #e9e9e9;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  &:first-child {
+    padding-top: 0;
+  }
 `
 const SubMenuContainer = styled.div`
   display: flex;
@@ -169,7 +182,7 @@ const SubMenuContainer = styled.div`
   }
 `
 
-function Navigation() {
+function NavigationBurger() {
   return (
     <>
       <Nav>
@@ -523,4 +536,4 @@ function Navigation() {
   )
 }
 
-export default Navigation
+export default NavigationBurger

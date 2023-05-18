@@ -9,6 +9,7 @@ import { useOnClickOutside } from '../hook/outside'
 import { useWindowSize } from '../hook/resize'
 import { Size } from '../models/models'
 import Navigation from './Navigation'
+import NavigationBurger from './NavigationBurger'
 
 const Wrapper = styled.div`
   max-width: 1160px;
@@ -22,6 +23,9 @@ const Wrapper = styled.div`
   }
 `
 
+const Burger = styled.div`
+  width: 2rem;
+`
 const HeaderStyle = styled.div`
   padding: 29px 0 25px;
   display: flex;
@@ -47,16 +51,9 @@ const StyledMenu = styled.nav<{ open: boolean }>`
 
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-`
 
-const StyledLink = styled.a`
-  padding: 0 1.25rem;
-  font-size: 2rem;
-  color: ${colors.black};
-  text-decoration: none;
-
-  &:hover {
-    color: ${colors.black};
+  @media (max-width: 400px) {
+    width: 100vw;
   }
 `
 
@@ -84,9 +81,6 @@ const Overlay = styled.div<{ open: boolean }>`
   height: 100vh;
   z-index: ${({ open }) => (open ? '10' : '-10')};
   background-color: rgba(255, 255, 255, 0.7);
-  /* @media (max-width: 576px) {
-    opacity: ${({ open }) => (open ? '0' : '1')};
-  } */
 `
 
 function Header() {
@@ -104,19 +98,17 @@ function Header() {
     <>
       <Wrapper>
         <HeaderStyle>
-          <div ref={node}>
+          <Burger ref={node}>
             <StyledMenu open={open}>
               <ImgContainer>
                 <MenuLogo src={LogoS} alt='logo' />
               </ImgContainer>
 
-              <StyledLink onClick={() => close()}>Link 1</StyledLink>
-              <StyledLink onClick={() => close()}>Link 2</StyledLink>
-              <StyledLink onClick={() => close()}>Link 3</StyledLink>
+              <NavigationBurger />
             </StyledMenu>
             {size.SCREEN_SM && <Hamburger open={open} setOpen={setOpen} />}
             <Overlay open={open} onClick={() => close()} />
-          </div>
+          </Burger>
 
           <a href='#' className='header__logo-link'>
             <MainLogo open={open} src={Logo} alt='logo' />

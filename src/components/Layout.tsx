@@ -21,10 +21,6 @@ const LayoutCards = styled.div`
   gap: 2.5rem;
   row-gap: 3rem;
   margin-bottom: 5rem;
-
-  @media (max-width: 576px) {
-    /* margin-bottom: 5rem; */
-  }
 `
 
 function Layout() {
@@ -37,6 +33,7 @@ function Layout() {
           <Post key={post.title} post={post} />
         ))}
       </LayoutCards>
+      <div id='posts__section'></div>
     </Wrapper>
   )
 }
