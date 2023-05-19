@@ -7,10 +7,10 @@ const SubMenu = styled.ul`
   position: absolute;
   list-style: none;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 1.25rem;
   border: 1px solid #e9e9e9;
 
-  margin-top: 20px;
+  margin-top: 1.25rem;
 `
 
 interface NextMenuProps {
@@ -22,10 +22,17 @@ const NextMenu = styled.ul<NextMenuProps>`
   top: 1rem;
   list-style: none;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 1.25rem;
   border: 1px solid #e9e9e9;
 `
-const Nav = styled.nav``
+const Nav = styled.nav`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #000000;
+`
 
 const SubMenuItem = styled.li`
   min-width: 136px;
@@ -49,7 +56,6 @@ const SubMenuItem = styled.li`
 const NavMenu = styled.ul`
   display: flex;
   justify-content: center;
-  /* gap: 1rem; */
   list-style: none;
   position: relative;
 
@@ -84,7 +90,7 @@ const Arrow = styled.div<ArrowProps>`
 const ArrowLeft = styled.span`
   position: absolute;
   background-color: transparent;
-  top: 10px;
+  top: 7px;
   left: 0;
   width: 6px;
   height: 2px;
@@ -108,7 +114,7 @@ const ArrowLeft = styled.span`
 const ArrowRight = styled.span`
   position: absolute;
   background-color: transparent;
-  top: 10px;
+  top: 7px;
   left: 4px;
   width: 6px;
   height: 2px;

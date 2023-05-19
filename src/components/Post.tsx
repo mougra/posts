@@ -14,8 +14,8 @@ const PostData = styled.div`
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
   color: #9b9b9b;
 
   margin: 0 0 1rem 0;
@@ -34,7 +34,7 @@ const CardCaption = styled.h2`
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 30px;
   color: #000000;
   margin: 0 0 1rem 0;
@@ -53,8 +53,8 @@ const CardText = styled.div`
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: #929292;
 `
 
