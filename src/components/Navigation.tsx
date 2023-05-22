@@ -7,9 +7,11 @@ const SubMenu = styled.ul`
   position: absolute;
   list-style: none;
   background-color: #ffffff;
-  padding: 1.25rem;
+  padding: 1.25rem 0;
   border: 1px solid #e9e9e9;
   margin-top: 1.25rem;
+  pointer-events: none;
+  transition: all 1s cubic-bezier(0.25, 1.7, 0.35, 0.8);
 `
 
 interface NextMenuProps {
@@ -21,8 +23,9 @@ const NextMenu = styled.ul<NextMenuProps>`
   top: 1rem;
   list-style: none;
   background-color: #ffffff;
-  padding: 1.25rem;
+  padding: 1.25rem 0;
   border: 1px solid #e9e9e9;
+  transition: all 1s cubic-bezier(0.25, 1.7, 0.35, 0.8);
 `
 const Nav = styled.nav`
   position: sticky;
@@ -36,9 +39,13 @@ const Nav = styled.nav`
 `
 
 const SubMenuItem = styled.li`
-  min-width: 136px;
-  padding: 0.5rem 0;
+  min-width: max-content;
+  padding: 0.5rem 1rem 0.5rem 0;
   border-bottom: 1px solid #e9e9e9;
+
+  a {
+    padding: 0 1.25rem;
+  }
 
   &:last-child {
     border-bottom: none;
@@ -147,6 +154,7 @@ const NavMenuItem = styled.li`
   &:hover ${SubMenu} {
     opacity: 1;
     z-index: 2;
+    pointer-events: all;
   }
   &:hover ${ArrowLeft}:after {
     transform-origin: center center;
@@ -161,8 +169,11 @@ const SubMenuContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   position: relative;
+
+  /* a {
+    padding: 0 1.25rem;
+  } */
 
   + ${NextMenu} {
     opacity: 0;
@@ -171,10 +182,12 @@ const SubMenuContainer = styled.div`
   + ${NextMenu}:hover {
     opacity: 1;
     z-index: 4;
+    /* pointer-events: all; */
   }
   &:hover + ${NextMenu} {
     opacity: 1;
     z-index: 4;
+    /* pointer-events: all; */
   }
 `
 
