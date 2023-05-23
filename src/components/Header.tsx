@@ -92,22 +92,22 @@ function Header() {
 
   const size: Size = useWindowSize()
 
-  // console.log('size')
-
   return (
     <>
       <Wrapper>
         <HeaderStyle>
           <Burger ref={node}>
-            <StyledMenu open={open}>
-              <ImgContainer>
-                <MenuLogo src={LogoS} alt='logo' />
-              </ImgContainer>
+            {size.SCREEN_SM && (
+              <StyledMenu open={open}>
+                <ImgContainer>
+                  <MenuLogo src={LogoS} alt='logo' />
+                </ImgContainer>
 
-              <NavigationBurger />
-            </StyledMenu>
+                <NavigationBurger />
+              </StyledMenu>
+            )}
             {size.SCREEN_SM && <Hamburger open={open} setOpen={setOpen} />}
-            <Overlay open={open} onClick={() => close()} />
+            {size.SCREEN_SM && <Overlay open={open} onClick={() => close()} />}
           </Burger>
 
           <a href='#' className='header__logo-link'>

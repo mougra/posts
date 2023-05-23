@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useAppSelector } from '../hook/redux'
-import Post from '../components/Post'
 import styled from 'styled-components'
 
 const SubMenu = styled.ul`
@@ -17,6 +15,7 @@ const SubMenu = styled.ul`
 interface NextMenuProps {
   position: string
 }
+
 const NextMenu = styled.ul<NextMenuProps>`
   position: absolute;
   right: ${({ position }) => (position === 'true' ? '-90%' : '95%')};
@@ -27,8 +26,18 @@ const NextMenu = styled.ul<NextMenuProps>`
   border: 1px solid #e9e9e9;
   transition: all 1s cubic-bezier(0.25, 1.7, 0.35, 0.8);
 `
-const Nav = styled.nav`
+
+interface NavProps {
+  scroll: boolean
+}
+
+const Nav = styled.nav<NavProps>`
   position: sticky;
+  top: 0;
+  transform: ${({ scroll }) =>
+    scroll === true ? 'translateY(-100px)' : 'translateY(0)'};
+
+  transition: all 1.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
 
   font-family: 'Roboto';
   font-style: normal;
@@ -42,6 +51,10 @@ const SubMenuItem = styled.li`
   min-width: max-content;
   padding: 0.5rem 1rem 0.5rem 0;
   border-bottom: 1px solid #e9e9e9;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   a {
     padding: 0 1.25rem;
@@ -57,14 +70,13 @@ const SubMenuItem = styled.li`
 `
 
 const NavMenu = styled.ul`
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   gap: 2rem;
   list-style: none;
   position: relative;
-
   flex-direction: row;
-
   margin: 0 0 3rem 0;
   padding: 0;
   border-top: 1px solid #e9e9e9;
@@ -73,6 +85,10 @@ const NavMenu = styled.ul`
   a {
     color: black;
     text-decoration: none;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `
 const NavMenuItemContainer = styled.div`
@@ -171,10 +187,6 @@ const SubMenuContainer = styled.div`
   align-items: center;
   position: relative;
 
-  /* a {
-    padding: 0 1.25rem;
-  } */
-
   + ${NextMenu} {
     opacity: 0;
     z-index: 0;
@@ -182,19 +194,30 @@ const SubMenuContainer = styled.div`
   + ${NextMenu}:hover {
     opacity: 1;
     z-index: 4;
-    /* pointer-events: all; */
   }
   &:hover + ${NextMenu} {
     opacity: 1;
     z-index: 4;
-    /* pointer-events: all; */
   }
 `
 
 function Navigation() {
+  const [scroll, setScroll] = useState(0)
+
+  const handleScroll = () => {
+    console.log(window.scrollY)
+
+    setScroll(window.scrollY)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
-      <Nav>
+      <Nav scroll={scroll >= 340 ? true : false}>
         <NavMenu>
           <NavMenuItem>
             <NavMenuItemContainer>

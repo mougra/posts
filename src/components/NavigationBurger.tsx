@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useAppSelector } from '../hook/redux'
-import Post from '../components/Post'
+import React from 'react'
 import styled from 'styled-components'
 
 const SubMenu = styled.ul`
@@ -11,6 +9,8 @@ const SubMenu = styled.ul`
   border: 1px solid #e9e9e9;
 
   margin-top: 1.25rem;
+  pointer-events: none;
+  transition: all 1s cubic-bezier(0.25, 1.7, 0.35, 0.8);
 `
 
 interface NextMenuProps {
@@ -24,6 +24,7 @@ const NextMenu = styled.ul<NextMenuProps>`
   background-color: #ffffff;
   padding: 1.25rem;
   border: 1px solid #e9e9e9;
+  transition: all 1s cubic-bezier(0.25, 1.7, 0.35, 0.8);
 `
 const Nav = styled.nav`
   font-family: 'Roboto';
@@ -58,18 +59,18 @@ const NavMenu = styled.ul`
   justify-content: center;
   list-style: none;
   position: relative;
-
   flex-direction: column;
-
   padding: 1rem 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 const NavMenuItemContainer = styled.div`
   width: fit-content;
-
   display: flex;
   gap: 0.75rem;
   justify-content: space-between;
-
   padding: 0.5rem 0;
 `
 
@@ -147,6 +148,7 @@ const NavMenuItem = styled.li`
   &:hover ${SubMenu} {
     opacity: 1;
     z-index: 2;
+    pointer-events: all;
   }
   &:hover ${ArrowLeft}:after {
     transform-origin: center center;
