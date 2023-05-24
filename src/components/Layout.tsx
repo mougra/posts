@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useAppSelector } from '../hook/redux'
 import Post from '../components/Post'
 import styled from 'styled-components'
@@ -21,18 +21,6 @@ const LayoutCards = styled.div`
   gap: 2.5rem;
   row-gap: 3rem;
   margin-bottom: 5rem;
-`
-
-const CardImg = styled.img`
-  width: 100%;
-  max-width: 360px;
-
-  @media (max-width: 992px) {
-    max-width: 500px;
-  }
-  @media (max-width: 576px) {
-    max-width: 576px;
-  }
 `
 
 function Layout() {

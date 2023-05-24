@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 import Logo from '../assets/svg/Logotype.svg'
 import LogoS from '../assets/svg/Logotype-s.svg'
-import searchIcon from '../assets/svg/search.svg'
 import Hamburger from './Hamburger'
 import styled from 'styled-components'
 import { colors } from '../global'
@@ -10,6 +9,7 @@ import { useWindowSize } from '../hook/resize'
 import { Size } from '../models/models'
 import Navigation from './Navigation'
 import NavigationBurger from './NavigationBurger'
+import Search from './Search'
 
 const Wrapper = styled.div`
   max-width: 1160px;
@@ -30,7 +30,7 @@ const HeaderStyle = styled.div`
   padding: 29px 0 25px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 `
 
 const StyledMenu = styled.nav<{ open: boolean }>`
@@ -85,6 +85,7 @@ const Overlay = styled.div<{ open: boolean }>`
 
 function Header() {
   const [open, setOpen] = useState<boolean>(false)
+
   const node = useRef<HTMLDivElement>(null)
   const close = () => setOpen(false)
 
@@ -109,11 +110,10 @@ function Header() {
             {size.SCREEN_SM && <Hamburger open={open} setOpen={setOpen} />}
             {size.SCREEN_SM && <Overlay open={open} onClick={() => close()} />}
           </Burger>
-
-          <a href='#' className='header__logo-link'>
+          <a href='#'>
             <MainLogo open={open} src={Logo} alt='logo' />
           </a>
-          <img src={searchIcon} alt=' search-icon' className='search-icon' />
+          <Search />
         </HeaderStyle>
       </Wrapper>
       {!size.SCREEN_SM && <Navigation />}

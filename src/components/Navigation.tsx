@@ -202,8 +202,6 @@ function Navigation() {
   const [scroll, setScroll] = useState(0)
 
   const handleScroll = () => {
-    console.log(window.scrollY)
-
     setScroll(window.scrollY)
   }
 

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
-import { useAppDispatch, useAppSelector } from './hook/redux'
+import { useAppDispatch } from './hook/redux'
 import { fetchPosts } from './store/actions/postsActions'
 import Header from './components/Header'
 import Layout from './components/Layout'
-import styled from 'styled-components'
 
 function App() {
   const dispatch = useAppDispatch()
