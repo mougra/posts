@@ -27,15 +27,11 @@ const NextMenu = styled.ul<NextMenuProps>`
   transition: all 1s cubic-bezier(0.25, 1.7, 0.35, 0.8);
 `
 
-interface NavProps {
-  scroll: boolean
-}
-
-const Nav = styled.nav<NavProps>`
+const Nav = styled.nav<{ scrollnav: string }>`
   position: sticky;
   top: 0;
-  transform: ${({ scroll }) =>
-    scroll === true ? 'translateY(-100px)' : 'translateY(0)'};
+  transform: ${({ scrollnav }) =>
+    scrollnav === 'true' ? 'translateY(-100px)' : 'translateY(0)'};
 
   transition: all 1.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
   z-index: 5;
@@ -218,7 +214,7 @@ function Navigation() {
 
   return (
     <>
-      <Nav scroll={scroll >= 340 ? true : false}>
+      <Nav scrollnav={scroll >= 340 ? 'true' : 'false'}>
         <NavMenu>
           <NavMenuItem>
             <NavMenuItemContainer>
