@@ -23,17 +23,39 @@ const LayoutCards = styled.div`
   margin-bottom: 5rem;
 `
 
+const CardImg = styled.img`
+  width: 100%;
+  max-width: 360px;
+
+  @media (max-width: 992px) {
+    max-width: 500px;
+  }
+  @media (max-width: 576px) {
+    max-width: 576px;
+  }
+`
+
 function Layout() {
   const { error, loading, posts } = useAppSelector((state) => state.posts)
-  console.log(posts)
+
   return (
     <Wrapper>
-      <LayoutCards>
-        {posts.map((post) => (
-          <Post key={post.title} post={post} />
-        ))}
-      </LayoutCards>
-      <div id='posts__section'></div>
+      {loading && <p className='text-center text-lg'>Loading...</p>}
+      {error && (
+        <p className='text-center text-lg text-red-600'>
+          Усп. Кажется кажетсячто-то пошло не так. Только без паники!
+        </p>
+      )}
+      {!error && (
+        <>
+          <LayoutCards>
+            {posts.map((post) => (
+              <Post key={post.title} post={post} />
+            ))}
+          </LayoutCards>
+          <div id='posts__section'></div>
+        </>
+      )}
     </Wrapper>
   )
 }

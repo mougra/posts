@@ -38,6 +38,7 @@ const Nav = styled.nav<NavProps>`
     scroll === true ? 'translateY(-100px)' : 'translateY(0)'};
 
   transition: all 1.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
+  z-index: 5;
 
   font-family: 'Roboto';
   font-style: normal;

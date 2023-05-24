@@ -1,9 +1,7 @@
 import { IPost } from '../models/models'
 import styled from 'styled-components'
-
-interface CharacterCardProps {
-  post: IPost
-}
+import Modal from './Modal'
+import { useState } from 'react'
 
 const PostData = styled.div`
   display: flex;
@@ -76,6 +74,13 @@ const Card = styled.div`
   max-width: 360px;
   width: 100%;
 
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+  }
+
   @media (max-width: 1200px) {
     width: calc((100% - 2 * 2.5rem) / 3);
   }
@@ -90,10 +95,16 @@ const Card = styled.div`
   }
 `
 
-function Post({ post }: CharacterCardProps) {
+interface PostProps {
+  post: IPost
+}
+
+function Post({ post }: PostProps) {
+  const [modalActive, setModalActive] = useState(false)
+
   return (
     <>
-      <Card>
+      <Card onClick={() => setModalActive(true)}>
         <CardImg
           src={post.img}
           alt='card-img'
@@ -111,6 +122,23 @@ function Post({ post }: CharacterCardProps) {
         </PostData>
         <CardText className='card__text'>{post.text}</CardText>
       </Card>
+      <Modal active={modalActive} setActive={setModalActive}>
+        <CardImg
+          src={post.img}
+          alt='card-img'
+          srcSet={`${post.img} 1x, ${post.img_2x} 2x`}
+          className='layout__card-img'
+        />
+        <CardTheme className='card__theme'>{post.tags}</CardTheme>
+        <CardCaption className='card__caption'>{post.title}</CardCaption>
+        <PostData>
+          <PostDataAuthor>{post.autor}</PostDataAuthor>
+          <Dotted />
+          <div className='card__post-data-date'>{post.date}</div>
+          <Dotted />
+          <div className='card__post-data-views'>{post.views}</div>
+        </PostData>
+      </Modal>
     </>
   )
 }
