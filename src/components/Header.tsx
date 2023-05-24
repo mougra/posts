@@ -92,6 +92,7 @@ function Header() {
   useOnClickOutside(node, () => setOpen(false))
 
   const size: Size = useWindowSize()
+  console.log(size)
 
   return (
     <>
@@ -111,7 +112,11 @@ function Header() {
             {size.SCREEN_SM && <Overlay open={open} onClick={() => close()} />}
           </Burger>
           <a href='#'>
-            <MainLogo open={open} src={Logo} alt='logo' />
+            <MainLogo
+              open={open}
+              src={size.SCREEN_SM ? Logo : LogoS}
+              alt='logo'
+            />
           </a>
           <Search />
         </HeaderStyle>

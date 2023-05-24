@@ -23,8 +23,11 @@ const ModalContent = styled.div<{ active: string }>`
   background-color: white;
   transition: all 0.4s ease-in-out;
   max-width: 20rem;
-
   transform: ${({ active }) => (active === 'true' ? 'scale(1)' : 'scale(0.5)')};
+
+  @media (max-width: 622px) {
+    max-width: 12rem;
+  }
 `
 const ModalCloseIcon = styled.div`
   width: 52px;
@@ -40,6 +43,11 @@ const ModalCloseIcon = styled.div`
   }
   svg {
     pointer-events: none;
+  }
+
+  @media (max-width: 622px) {
+    top: -60px;
+    right: 0;
   }
 `
 
