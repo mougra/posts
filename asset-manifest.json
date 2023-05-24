@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/posts/static/css/main.c142d280.css",
+    "main.js": "/posts/static/js/main.33918c59.js",
+    "static/media/roboto-v30-latin-700.svg": "/posts/static/media/roboto-v30-latin-700.32f463535c0a507946f7.svg",
+    "static/media/roboto-v30-latin-regular.svg": "/posts/static/media/roboto-v30-latin-regular.1b1af1e4b3a278058097.svg",
+    "static/media/roboto-v30-latin-500.svg": "/posts/static/media/roboto-v30-latin-500.29ec91e5b4e3ec4c3200.svg",
+    "static/media/roboto-v30-latin-500.ttf": "/posts/static/media/roboto-v30-latin-500.e65e3463169db5a1a55f.ttf",
+    "static/media/roboto-v30-latin-regular.ttf": "/posts/static/media/roboto-v30-latin-regular.6b1ef4e4ab8eafee13c1.ttf",
+    "static/media/roboto-v30-latin-700.ttf": "/posts/static/media/roboto-v30-latin-700.5e5b76f0fae3cf2ef7cc.ttf",
+    "static/media/roboto-v30-latin-500.woff": "/posts/static/media/roboto-v30-latin-500.48af7707fe9e6494d6a5.woff",
+    "static/media/roboto-v30-latin-700.woff": "/posts/static/media/roboto-v30-latin-700.77ecb942e56f9b036426.woff",
+    "static/media/roboto-v30-latin-regular.woff": "/posts/static/media/roboto-v30-latin-regular.f1e2a76794cb86b2aa8e.woff",
+    "static/media/roboto-v30-latin-500.eot": "/posts/static/media/roboto-v30-latin-500.1e420a026c238f3ff0e6.eot",
+    "static/media/roboto-v30-latin-regular.eot": "/posts/static/media/roboto-v30-latin-regular.e2f36b803fec4bdcd1bc.eot",
+    "static/media/roboto-v30-latin-700.eot": "/posts/static/media/roboto-v30-latin-700.7d4f7f5fd90497043541.eot",
+    "static/media/roboto-v30-latin-500.woff2": "/posts/static/media/roboto-v30-latin-500.f25d774ecfe0996f8eb5.woff2",
+    "static/media/roboto-v30-latin-700.woff2": "/posts/static/media/roboto-v30-latin-700.227c93190fe7f82de3f8.woff2",
+    "static/media/roboto-v30-latin-regular.woff2": "/posts/static/media/roboto-v30-latin-regular.b009a76ad6afe4ebd301.woff2",
+    "static/media/Logotype.svg": "/posts/static/media/Logotype.e02d9e5b5a78f96b14262442500fff71.svg",
+    "static/media/Logotype-s.svg": "/posts/static/media/Logotype-s.f71185689a0b0bcf672edd9feac922c6.svg",
+    "static/media/search.svg": "/posts/static/media/search.68b346cf7a3066a093d9f17c8ce3b61f.svg",
+    "index.html": "/posts/index.html",
+    "main.c142d280.css.map": "/posts/static/css/main.c142d280.css.map",
+    "main.33918c59.js.map": "/posts/static/js/main.33918c59.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c142d280.css",
+    "static/js/main.33918c59.js"
+  ]
+}
